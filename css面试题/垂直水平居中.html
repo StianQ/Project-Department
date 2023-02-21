@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>垂直水平居中</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box{
+        position: relative;
+        width: 500px;
+        height: 500px;
+        border: 5px solid red;
+        background-color: aqua;
+
+
+        /* 5.flex方法 */
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+
+        /* 3.table-cell方法 */
+        /* display: table-cell;
+        vertical-align: middle; */
+    }
+
+    /* 1.position加margin负值  */
+    /* .item{
+        position: absolute;
+        width: 200px;
+        height: 300px;
+        background-color: antiquewhite;
+        left: 50%;
+        top: 50%;
+        margin-left: -100px;
+        margin-top: -150px;
+    } */
+
+    /* 2.position加margin：auto */
+    /* .item{
+        position: absolute;
+        width: 200px;
+        height: 300px;
+        background-color: antiquewhite;
+        left: 0%;
+        top: 0%;
+        bottom: 0%;
+        right: 0%;
+        margin: auto;
+    } */
+
+    /* 3.display:table-cell加vertical-align:middle */
+    /* .item{
+        width: 200px;
+        height: 300px;
+        background-color: antiquewhite;
+        margin: auto;
+    } */
+
+
+    /* 4.position加transform */
+    /* .item{
+        position: absolute;
+        width: 200px;
+        height: 300px;
+        background-color: antiquewhite;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    } */
+
+    /* 5.flex */
+    .item{
+        width: 200px;
+        height: 300px;
+        background-color: antiquewhite;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="item"></div>
+    </div>
+</body>
+</html>

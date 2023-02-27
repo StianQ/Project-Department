@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手写Promise加载图片</title>
+</head>
+<body>
+    <script>
+        // const oImg = new Image();
+        // oImg.src = 'https://robohash.org/1';
+        // oImg.onload= () => {
+        //     document.body.appendChild(oImg)
+        // }
+
+        // oImg.onerror = () => {
+        //     console.log('error');
+        // }
+
+        // const oP = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve(1111);
+
+        //         // reject(123)
+        //     }, 1000);
+        // });
+
+        // oP.then( () => {
+        //     console.log("then");
+        // }).catch( () => {
+        //     console.log("catch");
+        // })
+
+        // const oP = new Promise((resolve,reject) => {
+        //     const oImg = new Image();
+        //     oImg.src = "https://robohash.org/1";
+
+        //     oImg.onload = () => {
+        //         resolve(oImg)
+        //     }
+
+        //     oImg.onerror = () => {
+        //         reject('图片加载失败')
+        //     }
+        // });
+
+        // oP.then((oImg) => {
+        //     document.body.appendChild(oImg)
+        // }).catch((errMsg) => {
+        //     console.log(errMsg);
+        // }) 
+
+        function loadImg(src) {
+            return new Promise((resolve, reject) => {
+                const oImg = new Image();
+                oImg.src = src;
+
+                oImg.onload = () => {
+                    resolve(oImg);
+                };
+
+                oImg.onerror = () => {
+                    reject('图片加载失败')
+                }
+            })
+        }
+
+        (async function () {
+            try{
+                const oImg = await loadImg('https://robohash.org/1');
+                document.body.appendChild(oImg);
+            } catch (err) {
+                console.log(err);
+            }
+
+        })()
+
+
+        // loadImg("https://robohash.org/1")
+        //     .then((oImg) => {
+        //         document.body.appendChild(oImg);
+        //         return loadImg("https://robohash.org/2")
+        //     })
+        //     .then((oImg) => {
+        //         document.body.appendChild(oImg);
+        //         return loadImg("https://robohash.org/3")
+        //     })
+        //     .then((oImg) => {
+        //         document.body.appendChild(oImg)
+        //     })
+        //     .catch((errMsg) => {
+        //         console.log(errMsg);
+        //     })
+
+        
+    </script>
+</body>
+</html>
